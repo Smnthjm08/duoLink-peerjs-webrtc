@@ -21,6 +21,7 @@ model User {
   image         String?
   password      String?
   accounts      Account[]
+  createdRooms  Room[]    @relation("RoomCreator")
 
   @@map("users")
 }
@@ -43,4 +44,12 @@ model Account {
 
   @@unique([provider, providerAccountId])
   @@map("accounts")
+}
+
+model Room {
+  id        String   @id @default(cuid())
+  name      String
+  createdAt DateTime @default(now())
+  creatorId String
+  creator   User     @relation("RoomCreator", fields: [creatorId], references: [id])
 }
