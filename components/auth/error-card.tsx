@@ -3,8 +3,6 @@ import { BackButton } from "./back-button";
 import {
   Card,
   CardFooter,
-  CardContent,
-  CardDescription,
   CardHeader,
 } from "@/components/ui/card";
 
