@@ -12,31 +12,33 @@ import { LoginButton } from "./auth/login-button";
 
 const AppBar = () => {
   return (
-    <section className="py-4 bg-slate-500">
+    <section className="py-4 bg-primary">
       <div className="container">
         {/* {Desktop} */}
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
-              <span className="text-xl font-extrabold pl-24">👀 duoLink</span>
+              <span className="text-xl font-extrabold pl-24  lg:text-2xl">
+                👀 duoLink
+              </span>
             </div>
           </div>
           <div className="flex gap-2">
             <ModeToggle />
-            <Button variant={"outline"} className="font-extrabold">
+            <Button className="font-extrabold bg-slate-50 text-slate-900">
               Log in
             </Button>
             <LoginButton>
-                      <Button size={"lg"} className="font-extrabold">
-                        Sign Up
-                      </Button>
-                    </LoginButton>
+              <Button variant={"outline"} className="font-extrabold">
+                Sign Up
+              </Button>
+            </LoginButton>
           </div>
         </nav>
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-xl font-bold">duoLink</span>
+              <span className="text-xl font-bold">👀 duoLink</span>
             </div>
             <Sheet>
               <SheetTrigger asChild>
