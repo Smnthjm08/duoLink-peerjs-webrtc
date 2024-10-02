@@ -1,109 +1,20 @@
-"use client"
+// app/page.tsx (or wherever your page file is located)
 
-import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
-import { Copy, Loader2 } from "lucide-react";
-import { useToast } from '@/hooks/use-toast';
-import axios from "axios";
-import { useSession } from 'next-auth/react';
+import React from "react";
+import CreateRoom from "@/components/create-room";
 
-const CreateRoom = () => {
-  const [roomName, setRoomName] = useState('');
-  const [roomLink, setRoomLink] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
-  const { data: session } = useSession();
-
-  const handleCreateRoom = async () => {
-    if (!roomName) {
-      toast({
-        title: "Error",
-        description: "Please enter a room name",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    //need to add dailog
-
-    setIsLoading(true);
-    try {
-      const response = await axios.post('/api/room', {
-        name: roomName,
-        creatorId: session?.user?.id
-      });
-      const room = response.data;
-      const newRoomLink = `${window.location.origin}/room/${room.id}`;
-      setRoomLink(newRoomLink);
-      toast({
-        title: "Success",
-        description: "Room created successfully. Share the link with others!",
-      });
-    } catch (error) {
-      console.error('Error creating room:', error);
-      toast({
-        title: "Error",
-        description: "Failed to create room",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(roomLink);
-    toast({
-      title: "Copied",
-      description: "Room link copied to clipboard",
-    });
-  };
-
+const CreateRoomPage = () => {
   return (
-<main className='p-12'>
+    <div>
+      <main className="flex justify-center flex-col items-center p-24">
+        <div className="font-bold text-3xl">Create New Room</div>
+        <div>
 
-    <Button className="flex">
-      Create Room
-    </Button>
-
-
-    <Card className="w-[350px]">
-      <CardHeader>
-        <CardTitle>Create a New Room</CardTitle>
-        <CardDescription>Set up a video call room and share the link with anyone.</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="grid w-full items-center gap-4">
-          <div className="flex flex-col space-y-1.5">
-            <Input
-              id="roomName"
-              placeholder="Enter room name"
-              value={roomName}
-              onChange={(e) => setRoomName(e.target.value)}
-            />
-          </div>
+        <CreateRoom />
         </div>
-      </CardContent>
-      <CardFooter className="flex flex-col items-start space-y-2">
-        <Button onClick={handleCreateRoom} disabled={isLoading} className="w-full">
-          {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-          Create Room
-        </Button>
-        {roomLink && (
-          <div className="flex w-full items-center space-x-2">
-            <Input value={roomLink} readOnly className="flex-grow" />
-            <Button size="icon" onClick={handleCopyLink}>
-              <Copy className="h-4 w-4" />
-            </Button>
-          </div>
-        )}
-      </CardFooter>
-    </Card>
-
-    </main> 
+      </main>
+    </div>
   );
 };
 
-export default CreateRoom;
+export default CreateRoomPage;
