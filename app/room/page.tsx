@@ -1,5 +1,3 @@
-// app/page.tsx (or wherever your page file is located)
-
 import React from "react";
 import CreateRoom from "@/components/create-room";
 

@@ -1,4 +1,3 @@
-// app/api/auth/signout/route.ts
 import { signOut } from "@/auth";
 
 export async function POST() {

@@ -2,7 +2,7 @@ import React from "react";
 import ReactPlayer from "react-player";
 
 interface PlayerProps {
-  playerId: string | number; // More specific typing for the playerId
+  playerId: string | number; // More specific typing for playerId
   url: string | any;
   muted?: boolean;
   playing?: boolean;

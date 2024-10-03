@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/no-children-prop */
 "use client";
 
@@ -116,7 +115,7 @@ export const RegisterForm = () => {
 
           <FormError  message={error}/>
           <FormSuccess message={success} />
-          <Button disabled={isPending} type="submit" className="w-full">
+          <Button disabled={isPending} type="submit" className="w-full font-bold">
             Create an account
           </Button>
         </form>

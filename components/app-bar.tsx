@@ -1,4 +1,3 @@
-// AppBar.tsx
 import { auth } from "@/auth";
 import { ModeToggle } from "@/app/mode-toogle";
 import Link from "next/link";
@@ -10,6 +9,7 @@ const AppBar = async () => {
   return (
     <section className="py-4 bg-primary">
       <div className="container">
+        
         {/* Desktop */}
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">

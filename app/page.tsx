@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client";
 
 import Hero13 from "@/components/landing/hero";

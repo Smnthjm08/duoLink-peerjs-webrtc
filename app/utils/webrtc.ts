@@ -1,4 +1,3 @@
-// app/utils/webrtc.ts
 import Peer from 'peerjs';
 
 export class WebRTCManager {

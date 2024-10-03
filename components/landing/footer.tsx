@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import {
   FaDiscord,
   FaTelegramPlane,
@@ -43,11 +42,6 @@ const Footer1 = () => {
       <div className="container">
         <footer>
           <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
-            <img
-              src="https://www.shadcnblocks.com/images/block/logos/shadcn-ui.svg"
-              alt="logo"
-              className="mb-8 mr-auto h-7 md:mb-0"
-            />
           </div>
           <Separator className="my-14" />
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">

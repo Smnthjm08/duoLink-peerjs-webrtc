@@ -1,4 +1,3 @@
-// hooks/usePlayer.ts
 import { useState, useCallback } from "react";
 
 interface Player {

@@ -1,4 +1,3 @@
-// ClientSideNav.tsx
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -19,20 +18,23 @@ interface ClientSideNavProps {
   isMobile?: boolean;
 }
 
-export const ClientSideNav: React.FC<ClientSideNavProps> = ({ session, isMobile = false }) => {
+export const ClientSideNav: React.FC<ClientSideNavProps> = ({
+  session,
+  isMobile = false,
+}) => {
   const router = useRouter();
 
   const handleSignOut = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/auth/signout', { method: 'POST' });
+      const response = await fetch("/api/auth/signout", { method: "POST" });
       if (response.ok) {
-        router.refresh(); // Refresh the current route
+        router.refresh();
       } else {
-        console.error('Sign out failed');
+        console.error("Sign out failed");
       }
     } catch (error) {
-      console.error('Error during sign out:', error);
+      console.error("Error during sign out:", error);
     }
   };
 
@@ -46,14 +48,18 @@ export const ClientSideNav: React.FC<ClientSideNavProps> = ({ session, isMobile 
         </form>
       ) : (
         <>
-          <Button className="font-extrabold bg-slate-50 text-slate-900">
-            Log in
-          </Button>
           <LoginButton>
-            <Button variant={"outline"} className="font-extrabold">
-              Sign Up
+            <Button className="font-extrabold bg-slate-50 text-slate-900">
+              Log in
             </Button>
           </LoginButton>
+          <Button
+            variant={"outline"}
+            className="font-extrabold"
+            onClick={() => router.push("/auth/register")}
+          >
+            Sign Up
+          </Button>
         </>
       )}
     </>

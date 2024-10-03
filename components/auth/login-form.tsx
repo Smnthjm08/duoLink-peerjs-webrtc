@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/no-children-prop */
 "use client";
 
@@ -12,7 +11,6 @@ import { useSearchParams } from "next/navigation";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -47,7 +45,6 @@ export const LoginForm = () => {
     startTransition(() => {
       login(values).then((data) => {
         setError(data?.error);
-        // need to be fixed
         setSuccess(data?.success);
       });
     });
