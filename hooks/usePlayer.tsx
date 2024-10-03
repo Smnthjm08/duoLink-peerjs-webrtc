@@ -31,6 +31,7 @@ const usePlayer = () => {
     console.log(`Player removed: ${peerId}`);
   }, []);
 
+
   return { players, addPlayer, removePlayer };
 };
 
