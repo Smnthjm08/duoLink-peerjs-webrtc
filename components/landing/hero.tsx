@@ -1,9 +1,22 @@
 import { Bell, CalendarPlus, PlayCircle, Video } from "lucide-react";
-
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
 
 const Hero = () => {
+  const [roomId, setRoomId] = useState("");
+
   return (
     <section className="py-32">
       <div className="container">
@@ -26,18 +39,60 @@ const Hero = () => {
           Experience real-time collaboration without the hassle.
         </p>
         <div className="mt-6 flex flex-col gap-4 sm:flex-row lg:mt-10">
-          <Button size={"lg"} className="w-full md:w-auto  font-semibold">
-          <CalendarPlus className="mr-2 size-5" />
+          <Button
+            size={"lg"}
+            className="w-full md:w-auto  font-semibold"
+            onClick={() => (window.location.href = "/auth/register")}
+          >
+            <CalendarPlus className="mr-2 size-5" />
             New Meeting
           </Button>
-          <Button
+          {/* <Button
             size={"lg"}
             variant={"outline"}
             className="w-full md:w-auto  font-semibold"
           >
             <Video className="mr-2 size-4" />
             Join Meeting
-          </Button>
+          </Button> */}
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="font-bold w-28 h-12 ">
+                Join Meeting
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle>Edit profile</DialogTitle>
+                <DialogDescription>
+                  Make changes to your profile here. Click save when you're
+                  done.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="grid gap-4 py-4">
+                <div className="grid grid-cols-4 items-center gap-4">
+                  <Label htmlFor="roomId" className="text-right">
+                    Room Link or Id
+                  </Label>
+                  <Input
+                    id="roomId"
+                    value={roomId}
+                    onChange={(e) => setRoomId(e.target.value)}
+                    className="col-span-3"
+                  />
+                </div>
+              </div>
+              <DialogFooter>
+                <Button
+                  type="button"
+                  onClick={() => (window.location.href = "/room/" + roomId)}
+                  className="w-full"
+                >
+                  Save changes
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </section>

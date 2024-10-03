@@ -84,12 +84,12 @@ const Footer1 = () => {
                   </Link>
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <Link href="#">
+                  <Link href="https://www.linkedin.com/in/sumanthjm/">
                     <FaLinkedin className="size-6" />
                   </Link>
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <Link href="#">
+                  <Link href="https://x.com/jm_sumanth">
                     <FaTwitter className="size-6" />
                   </Link>
                 </li>
@@ -99,7 +99,7 @@ const Footer1 = () => {
                   </Link>
                 </li>
                 <li className="font-medium hover:text-primary">
-                  <Link href="#">
+                  <Link href="https://github.com/Smnthjm08">
                     <FaGithub className="size-6" />
                   </Link>
                 </li>

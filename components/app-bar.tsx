@@ -1,78 +1,32 @@
-import { Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+// AppBar.tsx
+import { auth } from "@/auth";
 import { ModeToggle } from "@/app/mode-toogle";
-import { LoginButton } from "./auth/login-button";
+import Link from "next/link";
+import { ClientSideNav } from "./clientSideNav";
 
-const AppBar = () => {
+const AppBar = async () => {
+  const session = await auth();
+
   return (
     <section className="py-4 bg-primary">
       <div className="container">
-        {/* {Desktop} */}
+        {/* Desktop */}
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
-              <span className="text-xl font-extrabold pl-24  lg:text-2xl">
-                👀 duoLink
+              <span className="text-xl font-extrabold pl-24 lg:text-2xl">
+                <Link href="/">👀 duoLink</Link>
               </span>
             </div>
           </div>
           <div className="flex gap-2">
             <ModeToggle />
-            <Button className="font-extrabold bg-slate-50 text-slate-900">
-              Log in
-            </Button>
-            <LoginButton>
-              <Button variant={"outline"} className="font-extrabold">
-                Sign Up
-              </Button>
-            </LoginButton>
+            <ClientSideNav session={session} />
           </div>
         </nav>
-        <div className="block lg:hidden">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="text-xl font-bold">👀 duoLink</span>
-            </div>
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant={"outline"} size={"icon"}>
-                  <Menu className="size-4" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl font-bold">👀 duoLink</span>
-                    </div>
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="my-8 flex flex-col gap-4">
-                  <a href="#" className="font-semibold">
-                    Home
-                  </a>
-                </div>
-                <div className="border-t pt-4">
-                  <div className="mt-2 flex flex-col gap-3">
-                    <Button variant={"outline"}>Log in</Button>
-                    <LoginButton>
-                      <Button variant={"secondary"} size={"lg"}>
-                        Sign In
-                      </Button>
-                    </LoginButton>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
-        </div>
+
+        {/* Mobile */}
+        <ClientSideNav session={session} isMobile={true} />
       </div>
     </section>
   );

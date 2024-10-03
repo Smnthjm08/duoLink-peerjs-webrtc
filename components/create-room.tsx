@@ -21,7 +21,7 @@ import { useRouter } from "next/navigation";
 
 const CreateRoom = () => {
   const [roomName, setRoomName] = useState("");
-  const [roomLink, setRoomLink] = useState("");
+  const [roomId, setRoomId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [roomCreateId, setRoomCreateId] = useState("");
   const { toast } = useToast();
@@ -47,7 +47,7 @@ const CreateRoom = () => {
       const room = response.data;
       setRoomCreateId(room.id);
       const newRoomLink = `${window.location.origin}/room/${room.id}`;
-      setRoomLink(newRoomLink);
+      setRoomId(newRoomLink);
       toast({
         title: "Success",
         description: "Room created successfully. Share the link with others!",
@@ -65,7 +65,7 @@ const CreateRoom = () => {
   };
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(roomLink);
+    navigator.clipboard.writeText(roomId);
     toast({
       title: "Copied",
       description: "Room link copied to clipboard",
@@ -115,10 +115,10 @@ const CreateRoom = () => {
               "Create Room"
             )}
           </Button>
-          {roomLink && (
+          {roomId && (
             <>
               <div className="flex w-full items-center space-x-2 p-4">
-                <Input value={roomLink} readOnly className="flex-grow" />
+                <Input value={roomCreateId} readOnly className="flex-grow" />
                 <Button size="icon" onClick={handleCopyLink}>
                   <Copy className="h-4 w-4" />
                 </Button>

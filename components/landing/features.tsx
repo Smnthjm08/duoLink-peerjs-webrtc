@@ -6,7 +6,7 @@ const Features = () => {
       <div className="container">
         <p className="mb-4 text-xs text-muted-foreground">Why Us?</p>
         <h2 className="text-3xl font-medium lg:text-4xl">
-          A better way to build websites
+          A better way to connect
         </h2>
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:mt-20 lg:grid-cols-4">
           <div className="relative flex gap-3 rounded-lg border-dashed md:block md:border-l md:p-5">
@@ -19,8 +19,7 @@ const Features = () => {
                 <span className="absolute -left-px hidden h-6 w-px bg-primary md:inline-block"></span>
               </h3>
               <p className="text-sm text-muted-foreground md:text-base">
-                Lorem ipsum dolor sit amet, consectetur adipis elit. Sunt beatae
-                tenetur.
+                A peer to peer connection is established with ~100ms latency.
               </p>
             </div>
           </div>
@@ -34,8 +33,7 @@ const Features = () => {
                 <span className="absolute -left-px hidden h-6 w-px bg-primary md:inline-block"></span>
               </h3>
               <p className="text-sm text-muted-foreground md:text-base">
-                Lorem ipsum dolor sit amet, consectetur adipis elit. Sunt beatae
-                tenetur.
+                Built on top of the latest technologies and innovate with ease.
               </p>
             </div>
           </div>
@@ -49,8 +47,7 @@ const Features = () => {
                 <span className="absolute -left-px hidden h-6 w-px bg-primary md:inline-block"></span>
               </h3>
               <p className="text-sm text-muted-foreground md:text-base">
-                Lorem ipsum dolor sit amet, consectetur adipis elit. Sunt beatae
-                tenetur.
+                Great quality of video and audio.
               </p>
             </div>
           </div>
@@ -60,12 +57,11 @@ const Features = () => {
             </span>
             <div>
               <h3 className="font-medium md:mb-2 md:text-xl">
-                Accessibility
+                Simple
                 <span className="absolute -left-px hidden h-6 w-px bg-primary md:inline-block"></span>
               </h3>
               <p className="text-sm text-muted-foreground md:text-base">
-                Lorem ipsum dolor sit amet, consectetur adipis elit. Sunt beatae
-                tenetur.
+                Create room instantly and start sharing.
               </p>
             </div>
           </div>

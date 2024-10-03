@@ -1,7 +1,7 @@
 // An array of routes that are accesssible to the public
 //these routes don not require Authentication
 
-export const publicRoutes = ["/"];
+export const publicRoutes = ["/" ,"/room/[id]"];
 
 
 // An array of routes that are accesssible to the public

@@ -22,8 +22,10 @@ export default auth((req) => {
   const isLoggedin = !!req.auth;
 
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthprefix);
-  const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
-  const isAuthRoute = authRoutes.includes(nextUrl.pathname);
+  const isPublicRoute = publicRoutes.some((route) => {
+    // Exact match or dynamic room match
+    return route === nextUrl.pathname || nextUrl.pathname.startsWith("/room/");
+  });  const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
   if (isApiAuthRoute) {
     return null;
