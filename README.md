@@ -1,5 +1,3 @@
-Here's a shortened version of your README, focusing solely on setting up the application locally:
-
 **Note:** This is a shortened version of the README. I will update it with more details and instructions as I go along.
 
 # WebRTC Video Chat Application
